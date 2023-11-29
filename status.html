@@ -7,12 +7,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image:src" content="" />
     <meta property="og:image" content="" />
-    <meta name="twitter:title" content="Imprint - Hypixel" />
+    <meta name="twitter:title" content="Rules - Hypixel" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon" />
-    <meta name="description" content="This is the imprint page of the Minecraft server Demonscraft.lol" />
+    <meta name="description" content="Official Minecraft server rules of Demonscraft.lol" />
 
-    <title>Imprint - Demonscraft</title>
+    <title>Estado - Demonscraft</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css" />
@@ -81,27 +84,27 @@
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
               <li class="nav-item">
                 <a class="nav-link link text-white text-primary display-4" href="index.html#features13-2"
-                  >What is Demonscraft</a
+                  >Que es Demonscraft</a
                 >
               </li>
               <li class="nav-item">
                 <a class="nav-link link text-white text-primary display-4" href="index.html#features24-4"
-                  >How to join</a
+                  >Como Ingresar</a
                 >
               </li>
               <li class="nav-item">
                 <a class="nav-link link text-white text-primary display-4" href="conditions.html" target="_blank"
-                  >Terms and Conditions</a
+                  >Condiciones de Servicio</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link link text-white text-primary display-4" href="rules.html">Rules</a>
+                <a class="nav-link link text-white text-primary display-4" href="rules.html">Reglas</a>
               </li>
             </ul>
 
             <div class="navbar-buttons mbr-section-btn">
-              <a class="btn btn-primary display-4" href="https://Demonscraft.lol" target="_blank"
-                ><span class="mobi-mbri mobi-mbri-shopping-basket mbr-iconfont mbr-iconfont-btn"></span>Store&nbsp;</a
+              <a class="btn btn-primary display-4" href="/ranks.html" target="_blank"
+                ><span class="mobi-mbri mobi-mbri-shopping-basket mbr-iconfont mbr-iconfont-btn"></span>Tienda&nbsp;</a
               >
             </div>
           </div>
@@ -111,8 +114,8 @@
 
     <section
       data-bs-version="5.1"
-      class="header14 cid-tjquYnDPfS mbr-fullscreen mbr-parallax-background"
-      id="header14-n"
+      class="header14 cid-tjqvOAjwRT mbr-fullscreen mbr-parallax-background"
+      id="header14-t"
     >
       <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(1, 17, 26)"></div>
 
@@ -123,8 +126,13 @@
           </div>
           <div class="col-12 col-md">
             <div class="text-wrapper">
-              <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Imprint</strong></h1>
-              <p class="mbr-text mbr-fonts-style display-7">Here's the Imprint of our official website.</p>
+              <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Estado del Servidor</strong></h1>
+              <p class="mbr-text mbr-fonts-style display-7">
+                  <strong>Nombre del Servidor</strong> <span class="text-success">Demonscraft Network</span><br />
+                  <strong>Plataforma del Servidor:</strong> <span class="text-success">Java & Bedrock</span><br />
+                  <strong>Version:</strong> <span class="text-success">1.17.1</span><br />
+                  <strong>IP:</strong> <span class="text-success">Demonscraft.lol</span><br />
+              </p>
               <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="index.html">Home</a></div>
             </div>
           </div>
@@ -132,19 +140,28 @@
       </div>
     </section>
 
-    <section data-bs-version="5.1" class="content4 cid-tjqzz48owZ" id="content4-x">
+    <section data-bs-version="5.1" class="features12 cid-tjqffd3dFI" id="features13-2">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="title col-md-12 col-lg-10">
-            <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
-              <strong>Imprint</strong>
-            </h3>
-            <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-5">
-              <strong>Imprint according to §5 TMG</strong><br /><br />Steve Example<br />3828 Piermont Dr NE
-              <br />Albuquerque<br /><br /><strong>Contact</strong><br />Phone number: +0 12345 968 2<br />E-Mail:
-              mail@example.com<br /><br />Write your content here:
-            </h4>
-          </div>
+            <div class="status-card">
+            <div class="server-card-status">
+               <h2>Información del Servidor</h2>
+               <div class="server-frame">
+                  <iframe style="width:728px;height:90px;max-width:100%;border:none;display:block;margin:auto" src="https://es.namemc.com/server/demonscraft.lol/embed" width="728" height="90"></iframe>
+               </div>
+               <p>IP del servidor: <a href="/desarrollador.html">demonscraft.lol</a></d>
+               <p>Jugadores en línea: <span id="playerCount">-</span>
+               <button onclick="showPlayerList()">Show List</button>
+               <ul id="playerList" style="display: none;" class="player-list"></ul>
+               </p>
+               <p>Estado: <span id="serverStatus">-</span></p>
+               <p>Versión: <span id="serverVersion">-</span></p>
+               <p>Motd: <span id="serverMotd">-</span></p>
+            </div>
+            <div class="chart-container">
+               <canvas id="playerChart" width="600" height="200"></canvas>
+            </div>
+            </div>
         </div>
       </div>
     </section>
@@ -154,13 +171,13 @@
         <div class="row justify-content-center">
           <div class="col-md-12 col-lg-6 my-auto px-4 align-left">
             <p class="mbr-text text-grey mb-0 mbr-fonts-style display-7">
-              © Copyright 2022 <strong>Hypixel</strong>. All rights reserved.<br /><a
-                href="imprint.html"
+              © Copyright 2022 <strong>Hypixel</strong>. Derechos Reservados<br /><a
+                href="desarrollador.html"
                 class="text-primary"
                 target="_blank"
-                >Imprint </a
-              >| <a href="privacy.html" class="text-primary" target="_blank">Privacy </a>|
-              <a href="tos.html" class="text-primary" target="_blank">Terms of Service</a>
+                >Desarrollador </a
+              >| <a href="privacy.html" class="text-primary" target="_blank">Privacidad </a>|
+              <a href="tos.html" class="text-primary" target="_blank">Termino y Servicio</a>
             </p>
           </div>
           <div class="col-md-12 col-lg-6 px-4 align-right">
@@ -202,7 +219,9 @@
     <script src="assets/ytplayer/index.js"></script>
     <script src="assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="assets/theme/js/script.js"></script>
-
+    <script src="js/script.js"></script>
+    <script src="js/list.js"></script>
+    <script src="js/servers.js"></script>
     <input name="animation" type="hidden" />
   </body>
 </html>
